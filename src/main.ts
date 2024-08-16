@@ -5,6 +5,7 @@ import { TransactionService } from './transaction/transaction.service';
 async function bootstrap() {
   async function bootstrap() {
     const app = await NestFactory.create(AppModule);
+    app.enableCors();
     const transactionService = app.get(TransactionService);
     await transactionService.insertData();
     await app.listen(8080);
